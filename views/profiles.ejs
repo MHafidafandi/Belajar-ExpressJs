@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+            <h2>Daftar Profil Mahasiswa</h2>
+            <a href="/profiles/add" class="mb-2 btn btn-primary">Tambah data profile</a>
+            <% if (msg.length != 0) { %>
+                <div class="alert alert-success" role="alert">
+                <%= msg %> 
+              </div>
+            <% } %>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody> 
+                        <% if (profiles.length === 0) { %>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="alert alert-danger fw-bold" role="alert">
+                                        Data Profile Masih kosong.
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }%>
+                        <% let i=1 %> 
+                        <% profiles.forEach((profile,i) => { i++ %>
+                            <tr>
+                            <th scope="row"><%= i++ %> </th>
+                            <td><%= profile.nama %> </td>
+                            <td><%= profile.alamat %> </td>
+                            <td>
+                                <a href="/profils/<%= profile.nama %> " class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle-fill"></i> Detail</a></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

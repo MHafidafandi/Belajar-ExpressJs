@@ -1,0 +1,23 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Detail Profile</h2>
+            <% if (!profile) { %>
+                <div class="alert alert-danger fw-bold" role="alert">
+                    Data Profile Tidak ditemukan. <br><a href="/profiles" class="alert-link fw-normal">&laquo;Kembali Ke Profiles</a>
+                </div>
+            <% }else{ %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= profile.nama %> </h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= profile.noHp %> </h6>
+                  <p class="card-text"><%= profile.alamat %> </p>
+                  <a href="/profiles/edit/<%= profile.nama %>" class="btn btn-warning badge mb-2">Ubah</a>
+                  <a href="/profiles/delete/<%= profile.nama %>" class="btn btn-danger badge mb-2" onclick="return confirm('Yakin')">Hapus</a>
+                  <a href="/profiles" class="card-link d-block">&laquo;Kembali Ke Profiles</a>
+                </div>
+            </div>
+            <% } %> 
+        </div>
+    </div>
+</div>
